@@ -53,7 +53,7 @@ p {
   height: 35px;
   width: auto;
   display: block;
-  margin-left: 8rem;
+  margin-left: 2rem;
 }
 
 nav a {
@@ -111,7 +111,13 @@ nav ul li a:hover::after {
 nav ul li a:hover {
   color: var(--white);
 }
-/* --------------------------------------------------- */
+
+.hamburger-menu {
+  display: none;
+}
+
+/*
+--------------------------------------------------- */
 
 /* Hero-section */
 .hero-image {
@@ -142,6 +148,7 @@ nav ul li a:hover {
   background-color: var(--dark-grey);
   display: flex;
   justify-content: space-evenly;
+  flex-wrap: wrap;
 }
 
 .text-content-container {
@@ -254,6 +261,134 @@ footer p {
   position: absolute;
   top: 30px;
   left: 120px;
+}
+
+@media (max-width: 950px) {
+  h1 {
+    font-size: 55px;
+  }
+
+  .logo img {
+    margin-left: 1rem;
+  }
+
+  nav {
+    width: 100vw;
+    padding: 2rem;
+  }
+
+  ul {
+    flex-direction: column;
+  }
+
+  li {
+    margin: 0;
+  }
+
+  /* Hamburger menu */
+  .hamburger-menu {
+    display: block;
+    position: absolute;
+    top: 40px;
+    right: 35px;
+    z-index: 100;
+  }
+
+  .close-icon {
+    opacity: 0;
+    position: absolute;
+    top: -19px;
+    right: -21px;
+    z-index: 100;
+    transition: opacity 0.2s;
+  }
+
+  .hamburger-menu .close-icon {
+    opacity: 0;
+    transition: opacity 0.3s;
+  }
+
+  .hamburger-menu.active .close-icon {
+    opacity: 1;
+  }
+
+  .hamburger-menu.active .hamburger-icon {
+    display: none;
+  }
+
+  .nav-links {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    right: -100%;
+    height: 300px;
+    width: 100%;
+    background-color: var(--orange);
+    z-index: 100;
+    opacity: 0;
+    transition: right 0.5s ease-in-out;
+    margin: 0;
+  }
+
+  .nav-links li a {
+    color: var(--black);
+    padding: 2rem;
+  }
+
+  .nav-links.active {
+    right: 0;
+    opacity: 0.9;
+  }
+
+  /* -------------------------------------------------------------------------- */
+  .hero-image-overlay {
+    top: 300px;
+    left: 100px;
+  }
+
+  .main-container {
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+  }
+
+  .main-container img {
+    width: 100%;
+    height: auto;
+    margin: 0;
+  }
+
+  .text-content-container {
+    width: 100%;
+    margin-left: 0;
+    padding: 1rem;
+    margin-top: 1rem;
+  }
+
+  .text-content-container h4,
+  .text-content-container p,
+  .text-content-container h3 {
+    width: 100%;
+    text-wrap-style: pretty;
+    padding: 1rem;
+  }
+
+  .content-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-areas:
+      "our-work"
+      "medical-help"
+      "guard-trucks"
+      "video-surveillance";
+    width: 100%;
+    padding: 2rem;
+  }
 }
 
 /* Validated 2025-05-07 */
